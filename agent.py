@@ -28,7 +28,7 @@ def main():
     # 2. Initialize the Brain
     # We stick to the stable 1.5 Flash model to avoid 400/404 errors
     llm = ChatGoogleGenerativeAI(
-        model="gemini-2.0",
+        model="gemini-2.5-flash",
         temperature=0
     )
 
