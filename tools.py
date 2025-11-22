@@ -1,6 +1,6 @@
 from langchain_core.tools import tool
 import yfinance as yf
-from duckduckgo_search import DDGS
+from ddgs import DDGS
 
 @tool
 def get_stock_fundamentals(ticker: str):
