@@ -1,18 +1,10 @@
 import os
 import sys
 
-# 0. Import Google-specific LangChain modules
 from langchain_google_genai import ChatGoogleGenerativeAI
-
-# 1. Import AgentExecutor from its underlying file
-from langchain.agents.agent import AgentExecutor
-
-# 2. Import create_tool_calling_agent from its underlying file
-from langchain.agents.tool_calling_agent.base import create_tool_calling_agent
+from langchain.agents import AgentExecutor, create_tool_calling_agent
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import Tool
-
-# 2. Import your custom tools (No changes needed here!)
 import tools
 
 # --- CONFIGURATION ---
