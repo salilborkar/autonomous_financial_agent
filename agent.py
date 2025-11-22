@@ -36,7 +36,7 @@ def main():
     # "gemini-1.5-flash" is the best balance of speed and reasoning for agents.
     # You can also use "gemini-1.5-pro" if you want deeper analysis.
     llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash",
+        model="gemini-2.0-flash",
         temperature=0
     )
 
