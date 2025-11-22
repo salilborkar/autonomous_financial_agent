@@ -1,6 +1,8 @@
+from langchain_core.tools import tool
 import yfinance as yf
 from duckduckgo_search import DDGS
 
+@tool
 def get_stock_fundamentals(ticker: str):
     """
     Retrieves fundamental data for a stock ticker (e.g., AAPL, TSLA).
@@ -10,7 +12,6 @@ def get_stock_fundamentals(ticker: str):
         stock = yf.Ticker(ticker)
         info = stock.info
         
-        # We only extract the key data points to keep the AI focused
         data = {
             "symbol": ticker,
             "current_price": info.get("currentPrice"),
@@ -23,13 +24,14 @@ def get_stock_fundamentals(ticker: str):
     except Exception as e:
         return f"Error fetching data for {ticker}: {e}"
 
+@tool
 def search_market_news(query: str):
     """
     Searches the web for real-time news using DuckDuckGo.
     Useful for finding sentiment, recent events, or analyst ratings.
     """
     try:
-        results = DDGS().text(query, max_results=5)
+        results = DDGS().text(query, max_results=3)
         summary = ""
         for result in results:
             summary += f"- {result['title']}: {result['body']}\n"
